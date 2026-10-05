@@ -262,7 +262,11 @@ footer {
         flex-direction: column;
         align-items: center;
     }
-
+    nav .boton {
+        display: block;
+        width: 150px;
+        text-align: center;
+}
     .inicio h2 {
         font-size: 28px;
     }
