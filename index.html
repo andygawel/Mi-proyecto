@@ -4,20 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- SEO -->
     <title>The Riff | Instrumentos Musicales</title>
+    <meta name="description" content="The Riff: tienda de instrumentos musicales. Guitarras, bajos y baterías. Agregá tus productos al carrito y comprá online.">
+    <meta name="keywords" content="instrumentos musicales, guitarra, bajo, batería, tienda online, The Riff">
+    <meta name="author" content="The Riff">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://andygawel.github.io/Mi-proyecto/">
+
+    <!-- Open Graph (redes sociales) -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:title" content="The Riff | Instrumentos Musicales">
+    <meta property="og:description" content="Tienda de instrumentos musicales con carrito de compras online.">
+    <meta property="og:url" content="https://andygawel.github.io/Mi-proyecto/">
+    <meta property="og:image" content="https://andygawel.github.io/Mi-proyecto/img/fondo.webp">
 
     <link rel="icon" type="image/svg+xml" href="./img/guitarra.svg">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap 5 (CDN - utilidades) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS propio (siempre después de Bootstrap) -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+
+    <!-- SALTAR AL CONTENIDO (accesibilidad) -->
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
     <!-- ENCABEZADO -->
     <header>
@@ -27,7 +46,7 @@
         </div>
 
         <!-- NAVEGACIÓN -->
-        <nav>
+        <nav aria-label="Navegación principal">
             <ul>
                 <li><a href="#inicio" class="boton">Inicio</a></li>
                 <li><a href="#productos" class="boton">Productos</a></li>
@@ -35,10 +54,16 @@
                 <li><a href="#contacto" class="boton">Contacto</a></li>
             </ul>
         </nav>
+
+        <!-- BOTÓN CARRITO -->
+        <button type="button" class="boton btn-carrito" id="btn-carrito"
+                aria-controls="carrito-panel" aria-expanded="false">
+            🛒 Carrito <span class="contador" id="contador-carrito">0</span>
+        </button>
     </header>
 
 
-    <main>
+    <main id="contenido">
 
         <!-- INICIO -->
         <section id="inicio" class="inicio">
@@ -48,63 +73,39 @@
         </section>
 
 
-        <!-- PRODUCTOS -->
-        <section id="productos" class="productos">
-            <h2>Nuestros productos</h2>
+        <!-- PRODUCTOS (las cards se renderizan desde la API con JavaScript) -->
+        <section id="productos" class="productos" aria-labelledby="titulo-productos">
+            <h2 id="titulo-productos">Nuestros productos</h2>
 
-            <div class="contenedor-productos">
+            <p class="estado-productos" id="estado-productos" role="status" aria-live="polite">
+                Cargando productos…
+            </p>
 
-                <article class="card">
-                    <img src="img/guitarra.jpg" alt="Guitarra eléctrica">
-                    <h3>Guitarra eléctrica</h3>
-                    <p>Guitarra eléctrica de seis cuerdas.</p>
-                    <p class="precio">$450.000</p>
-                    <a href="#contacto" class="boton">Comprar</a>
-                </article>
-
-                <article class="card">
-                    <img src="img/bajo.jpg" alt="Bajo eléctrico">
-                    <h3>Bajo eléctrico</h3>
-                    <p>Bajo de cuatro cuerdas.</p>
-                    <br>
-                    <p class="precio">$520.000</p>
-                    <a href="#contacto" class="boton">Comprar</a>
-                </article>
-
-                <article class="card">
-                    <img src="img/bateria.jpg" alt="Batería acústica">
-                    <h3>Batería acústica</h3>
-                    <p>Batería de cinco cuerpos.</p>
-                    <br>
-                    <p class="precio">$780.000</p>
-                    <a href="#contacto" class="boton">Comprar</a>
-                </article>
-
-            </div>
+            <div class="contenedor-productos" id="lista-productos"></div>
         </section>
 
 
         <!-- RESEÑAS -->
-        <section id="resenas" class="resenas">
-            <h2>Reseñas de clientes</h2>
+        <section id="resenas" class="resenas" aria-labelledby="titulo-resenas">
+            <h2 id="titulo-resenas">Reseñas de clientes</h2>
 
             <div class="contenedor-resenas">
 
                 <article class="resena">
                     <h3>Martín</h3>
-                    <p class="estrellas">★★★★★</p>
+                    <p class="estrellas" aria-label="5 de 5 estrellas">★★★★★</p>
                     <p>Excelente atención y muy buenos instrumentos.</p>
                 </article>
 
                 <article class="resena">
                     <h3>Lucía</h3>
-                    <p class="estrellas">★★★★★</p>
+                    <p class="estrellas" aria-label="5 de 5 estrellas">★★★★★</p>
                     <p>Encontré todo lo que necesitaba para mi banda.</p>
                 </article>
 
                 <article class="resena">
                     <h3>Diego</h3>
-                    <p class="estrellas">★★★★☆</p>
+                    <p class="estrellas" aria-label="4 de 5 estrellas">★★★★☆</p>
                     <p>Muy buena calidad y precios accesibles.</p>
                 </article>
 
@@ -113,22 +114,36 @@
 
 
         <!-- CONTACTO -->
-        <section id="contacto" class="contacto">
-            <h2>Contacto</h2>
+        <section id="contacto" class="contacto" aria-labelledby="titulo-contacto">
+            <h2 id="titulo-contacto">Contacto</h2>
             <p>¿Tenés alguna consulta? Escribinos.</p>
 
-            <form action="https://formspree.io/f/mzedbnjl" method="POST">
+            <form action="https://formspree.io/f/mzedbnjl" method="POST" id="formulario-contacto" novalidate>
 
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" required>
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control" required
+                           autocomplete="name" aria-describedby="error-nombre">
+                    <span class="error-campo" id="error-nombre"></span>
+                </div>
 
-                <label for="email">Correo electrónico</label>
-                <input type="email" id="email" name="email" required>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo electrónico</label>
+                    <input type="email" id="email" name="email" class="form-control" required
+                           autocomplete="email" aria-describedby="error-email">
+                    <span class="error-campo" id="error-email"></span>
+                </div>
 
-                <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                <div class="mb-3">
+                    <label for="mensaje" class="form-label">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" class="form-control" required
+                              aria-describedby="error-mensaje"></textarea>
+                    <span class="error-campo" id="error-mensaje"></span>
+                </div>
 
                 <button type="submit" class="boton">Enviar</button>
+
+                <p class="msg-formulario" id="msg-formulario" role="status" aria-live="polite"></p>
 
             </form>
         </section>
@@ -138,8 +153,46 @@
 
     <!-- PIE DE PÁGINA -->
     <footer>
-        <p>&copy; 2026 The Riff - Instrumentos Musicales</p>
+        <div class="container">
+            <p>&copy; 2026 The Riff - Instrumentos Musicales</p>
+        </div>
     </footer>
+
+
+    <!-- OVERLAY DEL CARRITO -->
+    <div class="carrito-overlay" id="carrito-overlay"></div>
+
+    <!-- PANEL LATERAL DEL CARRITO -->
+    <aside class="carrito-panel" id="carrito-panel" role="dialog" aria-modal="true"
+           aria-labelledby="carrito-titulo" aria-hidden="true">
+
+        <div class="carrito-cabecera">
+            <h2 id="carrito-titulo">Tu carrito</h2>
+            <button type="button" class="boton btn-cerrar" id="btn-cerrar-carrito"
+                    aria-label="Cerrar el carrito">✕</button>
+        </div>
+
+        <div class="carrito-cuerpo">
+            <p class="carrito-vacio" id="carrito-vacio">Tu carrito está vacío.</p>
+            <ul class="lista-carrito" id="lista-carrito"></ul>
+        </div>
+
+        <div class="carrito-pie">
+            <p class="total">Total: <span id="total-carrito">$ 0</span></p>
+            <p class="msg-compra" id="msg-compra" role="status" aria-live="polite"></p>
+
+            <div class="acciones-carrito d-flex gap-2 flex-wrap">
+                <button type="button" class="boton btn-vaciar" id="btn-vaciar">Vaciar carrito</button>
+                <button type="button" class="boton btn-finalizar" id="btn-finalizar">Finalizar compra</button>
+            </div>
+
+            <button type="button" class="boton btn-seguir" id="btn-seguir">Seguir comprando</button>
+        </div>
+
+    </aside>
+
+    <!-- JavaScript -->
+    <script src="script.js" defer></script>
 
 </body>
 </html>

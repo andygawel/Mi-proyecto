@@ -4,15 +4,19 @@
 
 **The Riff** es un proyecto de e-commerce de instrumentos musicales desarrollado como parte de un curso de desarrollo web.
 
-El sitio permite visualizar productos, consultar sus precios, conocer opiniones de clientes y comunicarse con la tienda mediante un formulario de contacto.
+El sitio permite visualizar productos obtenidos desde una API REST, agregarlos a un carrito de compras persistente, consultar opiniones de clientes y comunicarse con la tienda mediante un formulario de contacto.
 
 ## Tecnologías utilizadas
 
-* HTML5
+* HTML5 (etiquetas semánticas)
 * CSS3
 * Flexbox
 * CSS Grid
 * Media Queries
+* Bootstrap 5 (CDN - utilidades)
+* JavaScript (ES6+)
+* Fetch API
+* localStorage
 * Google Fonts
 * Formspree
 * Git y GitHub
@@ -48,6 +52,31 @@ El formulario solicita:
 * Nombre
 * Correo electrónico
 * Mensaje
+
+Además, el formulario es **validado con JavaScript** antes de enviarse: comprueba que los campos no estén vacíos y que el correo tenga un formato válido, mostrando mensajes de error junto a cada campo.
+
+## API de productos
+
+Los productos se consumen desde una API REST en formato JSON (`productos.json`) utilizando la **Fetch API** con `async/await`.
+
+* Cada producto se renderiza en el DOM como una card con imagen, título, precio y botón de compra.
+* Se muestran estados de carga y de error (con botón de reintento) mientras se obtienen los datos.
+
+## Carrito de compras
+
+* Botón en el encabezado con **contador dinámico** de productos.
+* Panel lateral (drawer) con la lista de productos, cantidad, precio unitario, subtotal y **total dinámico**.
+* Se pueden **agregar, modificar cantidades, eliminar y vaciar** el carrito.
+* El estado se guarda en **localStorage**, por lo que persiste al actualizar o cerrar la página.
+* Botón de **compra simulada** que muestra una confirmación y vacía el carrito.
+
+## Accesibilidad y SEO
+
+* Imágenes con texto alternario (`alt`) descriptivo.
+* Navegación completa con **teclado** (skip link, foco visible, panel del carrito con `Esc` y trap de foco).
+* Regiones en vivo (`aria-live`) para anunciar cambios del carrito y del formulario.
+* Metaetiquetas SEO: descripción, keywords, robots, canonical y Open Graph.
+* Estructura de encabezados jerárquica (`h1` → `h2` → `h3`).
 
 ## Recursos multimedia
 

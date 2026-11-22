@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "nombre": "Guitarra eléctrica",
+        "descripcion": "Guitarra eléctrica de seis cuerdas con pastillas humbucker.",
+        "precio": 450000,
+        "imagen": "img/guitarra.jpg",
+        "categoria": "Cuerdas"
+    },
+    {
+        "id": 2,
+        "nombre": "Bajo eléctrico",
+        "descripcion": "Bajo eléctrico de cuatro cuerdas con mástil en arce.",
+        "precio": 520000,
+        "imagen": "img/bajo.jpg",
+        "categoria": "Cuerdas"
+    },
+    {
+        "id": 3,
+        "nombre": "Batería acústica",
+        "descripcion": "Batería acústica de cinco cuerpos con herrajes cromados.",
+        "precio": 780000,
+        "imagen": "img/bateria.jpg",
+        "categoria": "Percusión"
+    },
+    {
+        "id": 4,
+        "nombre": "Guitarra acústica",
+        "descripcion": "Guitarra acústica de cuerdas de nylon, ideal para principiantes.",
+        "precio": 380000,
+        "imagen": "img/guitarra.jpg",
+        "categoria": "Cuerdas"
+    },
+    {
+        "id": 5,
+        "nombre": "Bajo de cinco cuerdas",
+        "descripcion": "Bajo eléctrico de cinco cuerdas con grave extendido.",
+        "precio": 640000,
+        "imagen": "img/bajo.jpg",
+        "categoria": "Cuerdas"
+    },
+    {
+        "id": 6,
+        "nombre": "Batería profesional",
+        "descripcion": "Batería profesional de seis cuerpos con platillos incluidos.",
+        "precio": 1150000,
+        "imagen": "img/bateria.jpg",
+        "categoria": "Percusión"
+    }
+]
